@@ -2,9 +2,6 @@ import pandas as pd
 import numpy as np
 import asyncio
 
-from numpy.ma.core import anomalies
-
-
 class WeatherData:
 
     def __init__(self, days = 5):
@@ -44,3 +41,5 @@ class WeatherData:
         avg_hum = self.df['Humidity'].mean()
         print(f"\nСредняя температура: {avg_temp:.1f}°C")
         print(f"Средняя влажность: {avg_hum:.1f}%")
+        self.df.to_csv('weather_data.csv', index=False)
+        print("Данные сохранены в weather_data.csv")
